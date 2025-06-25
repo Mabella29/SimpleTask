@@ -3,7 +3,7 @@ import axios from "axios";
 // creates a baseURL, whenever you want to make http requests,
 // this link would be in front
 const API = axios.create({
-    baseURL: "http://localhost/api"
+    baseURL: "http://localhost:5000/api"
 }
 )
 

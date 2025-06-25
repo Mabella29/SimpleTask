@@ -17,7 +17,13 @@ export default function Home(){
     }
 
     const handleAdd = async ()=>{
-        if(!text.trim()) return;
+        const trimmed = text.trim()
+        if(!trimmed) return;
+        const isDuplicated = tasks.some(task=> task.text.toLowerCase === trimmed.toLowerCase)
+        if(isDuplicated) {
+            alert('Task already exists')
+            return;
+        } 
         const res = await createTasks({text, completed:false})
         setTasks(prev => [...prev, res.data])
         setText("")
@@ -41,7 +47,7 @@ export default function Home(){
                 Quick Tasks
             </h1>
 
-            <div className="flex gap-3">
+            <div className="flex gap-3 mb-4">
                 <input 
                     className="flex-1 p-2 rounded bg-gray-700 text-gray-100 border border-gray-600 placeholder-gray-400 focus:outline-none focus:ring focus:ring-blue-500"
                     value={text}

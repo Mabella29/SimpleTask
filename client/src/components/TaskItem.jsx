@@ -1,7 +1,7 @@
 export default function TaskItem({task, onToggle, onDelete}){
     return(
         <li className="flex items-center justify-between p-2 border-b border-gray-700">
-            <span onClick={()=>onToggle(task._id)} className={`${task.completed ? "line-through text-gray-500":""}`}>
+            <span onClick={()=>onToggle(task._id)} className={`flex-1 cursor-pointer select-none ${task.completed ? "line-through text-gray-500":""}`}>
                 {task.text}
 
             </span>
