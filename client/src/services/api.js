@@ -3,9 +3,10 @@ import axios from "axios";
 // creates a baseURL, whenever you want to make http requests,
 // this link would be in front
 const API = axios.create({
-    baseURL: "http://localhost:5000/api"
-}
-)
+  baseURL: import.meta.env.VITE_API_URL 
+    ? `${import.meta.env.VITE_API_URL}/api`
+    : "http://localhost:5000/api"
+});
 
 //get all the tasks in http://localhost/api/tasks route
 export const getTasks = ()=> API.get('/tasks')
